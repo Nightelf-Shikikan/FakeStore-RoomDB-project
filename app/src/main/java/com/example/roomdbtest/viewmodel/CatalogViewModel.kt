@@ -18,11 +18,16 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.util.UUID
 import javax.inject.Inject
+import com.example.roomdbtest.data.datastore.UserTokenStore
+
+
 
 @HiltViewModel
 class CatalogViewModel @Inject constructor(
-    private val repository: CatalogItemRepository
+    private val repository: CatalogItemRepository,
+    private val UserTokenStore: UserTokenStore
 ) : ViewModel() {
 
     // UI state (loading / error only)
@@ -45,6 +50,9 @@ class CatalogViewModel @Inject constructor(
 
     fun sendRequest() {
         viewModelScope.launch {
+            val token = UUID.randomUUID().toString()
+            UserTokenStore.saveToken(token)
+
             _state.value = CatalogServerResult.Loading
 
             try {
