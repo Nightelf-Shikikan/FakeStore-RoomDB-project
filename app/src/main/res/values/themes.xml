@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme -->
+    <style name="Theme.RoomdbTest" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary app colors -->
+        <item name="colorPrimary">@android:color/holo_blue_light</item>
+        <item name="colorPrimaryDark">@android:color/holo_blue_dark</item>
+        <item name="colorAccent">@android:color/holo_orange_light</item>
+        <!-- Optional: default font, etc -->
+    </style>
+
+</resources>
